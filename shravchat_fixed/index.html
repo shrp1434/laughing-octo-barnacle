@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ShravChat</title>
+  <meta name="description" content="ShravChat — private text, GIF, sticker and image messaging.">
+  <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+  <div id="app" class="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="logo">S</div><div><h1>ShravChat</h1><span>private messaging</span></div></div>
+      <div class="me-card">
+        <div class="avatar" id="meAvatar">S</div>
+        <div class="me-info"><strong id="meName">Not set up</strong><small id="meId">Create your identity</small></div>
+        <button id="settingsBtn" class="icon-btn" title="Settings">⚙</button>
+      </div>
+      <div class="add-row">
+        <input id="ipInput" autocomplete="off" placeholder="Add by IP address">
+        <button id="addBtn" class="primary">Add</button>
+      </div>
+      <div class="hint">Use a public IP address. The recipient must have ShravChat open and registered.</div>
+      <div class="section-title">Chats</div>
+      <div id="chatList" class="chat-list"><div class="empty">No chats yet.<br>Add someone using their IP.</div></div>
+      <div class="sidebar-foot">End-to-end encrypted message payloads are supported when configured. Your server never needs to expose a user's IP to the other user.</div>
+    </aside>
+
+    <main class="main">
+      <header class="chat-header">
+        <div id="chatAvatar" class="avatar large">?</div>
+        <div class="chat-title"><strong id="chatName">Select a chat</strong><small id="chatStatus">No conversation selected</small></div>
+        <button id="renameBtn" class="ghost" disabled>Rename</button>
+      </header>
+
+      <section id="messages" class="messages">
+        <div class="welcome">
+          <div class="welcome-logo">S</div>
+          <h2>ShravChat</h2>
+          <p>Add a person by IP address to start a text, GIF, sticker or image conversation.</p>
+        </div>
+      </section>
+
+      <form id="composer" class="composer" autocomplete="off">
+        <input type="file" id="imagePicker" accept="image/*" hidden>
+        <button type="button" id="imageBtn" class="tool" title="Send image">＋</button>
+        <button type="button" id="gifBtn" class="tool" title="GIF">GIF</button>
+        <button type="button" id="stickerBtn" class="tool" title="Sticker">★</button>
+        <input id="messageInput" placeholder="Write a message…" maxlength="4000" disabled>
+        <button class="send" type="submit" disabled>Send</button>
+      </form>
+    </main>
+  </div>
+
+  <div id="setupModal" class="modal hidden">
+    <div class="modal-card">
+      <h2>Welcome to ShravChat</h2>
+      <p>Choose the name people will see in your chats.</p>
+      <input id="nameInput" maxlength="30" placeholder="Your display name">
+      <button id="createBtn" class="primary full">Create ShravChat</button>
+      <p class="small">Your ShravChat identity is stored in this browser.</p>
+    </div>
+  </div>
+
+  <div id="renameModal" class="modal hidden">
+    <div class="modal-card">
+      <h2>Rename chat</h2>
+      <input id="renameInput" maxlength="40" placeholder="New chat name">
+      <div class="modal-actions"><button id="renameCancel" class="ghost">Cancel</button><button id="renameSave" class="primary">Save</button></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script type="module" src="/public/app.js"></script>
+</body>
+</html>

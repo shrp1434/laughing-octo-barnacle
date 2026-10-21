@@ -1,0 +1,12 @@
+{
+  "name": "shravchat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ShravChat messaging web app",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "@vercel/node": "^5.5.0"
+  }
+}
